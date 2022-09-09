@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about":"Sobre mi",
+    "lng-es": "Español",
+    "lng-en": "Ingles"
+  },
+  "home": {
+    "greeting_title": "Desarrollador web Full-Stack"
+  }
+}

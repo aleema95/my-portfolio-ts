@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about":"About me",
+    "lng-es": "Spanish",
+    "lng-en": "English"
+  },
+  "home": {
+    "greeting_title": "Full-Stack web developer"
+  }
+}
