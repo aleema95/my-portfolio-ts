@@ -1,14 +1,14 @@
+import s from './Home.module.scss'
+import { useTranslation } from 'react-i18next'
 
-interface Props {
-  greeting: string
-}
 
-export default function Home(props: Props) {
+export default function Home() {
+  const [t, i18n] = useTranslation<string>("global")
+
+
   return (
-    <div>
-      <h1>
-        {props.greeting}
-      </h1>
+    <div className={s.mainContainer}>
+      <h1 className={s.mainTitle}>{t('home.greeting_title')}</h1>
     </div>
   )
 }
