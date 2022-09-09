@@ -1,0 +1,41 @@
+@import 'src/_variables.scss';
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: $dark-blue;
+    .languageChangeBtnContainer {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-right: 20px;
+      width: 200px;
+        button {
+          height: 30px;
+          border-radius: 5px;
+          border: none;
+      }
+    }
+    .listContainer {
+      display: flex;
+      justify-content: space-between;
+      width: 750px;
+      .mainLink {
+        font-family: $font-kanit;
+        color: $white-color;
+        text-decoration: none;
+        font-weight: $font-w-600;
+        width: 500px;
+      }
+      .navLinksContainer {
+        display: flex;
+        justify-content: space-between;
+        width: 150px;
+        font-family: $font-kanit;
+        .link {
+          color: $white-color;
+          text-decoration: none;
+          }
+      }
+    }
+}
