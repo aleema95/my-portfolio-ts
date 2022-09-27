@@ -8,6 +8,11 @@
   },
   "home": {
     "greeting_title": "Desarrollador web Full-Stack",
-    "self_description": "Hola! Mi nombre es Alejandro Manouellian. Empecé mi carrera en el año 2022. Ya tengo 2 proyectos hechos y sigo por más!"
+    "self_description_1": "Hola! Mi nombre es ",
+    "self_description_2": "Empecé mi carrera en el año 2022. ",
+    "self_description_3": "Ya tengo 2 proyectos ",
+    "self_description_4": "individuales y grupales ",
+    "self_description_5": "y sigo adelante por más!",
+    "name": "Alejandro Manouellian."
   }
 }
