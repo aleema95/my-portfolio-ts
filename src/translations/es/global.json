@@ -2,10 +2,12 @@
   "navbar": {
     "home": "Inicio",
     "about":"Sobre mi",
+    "portfolio":"Portfolio",
     "lng-es": "Español",
     "lng-en": "Ingles"
   },
   "home": {
-    "greeting_title": "Desarrollador web Full-Stack"
+    "greeting_title": "Desarrollador web Full-Stack",
+    "self_description": "Hola! Mi nombre es Alejandro Manouellian. Empecé mi carrera en el año 2022. Ya tengo 2 proyectos hechos y sigo por más!"
   }
 }

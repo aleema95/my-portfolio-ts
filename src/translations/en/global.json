@@ -2,10 +2,17 @@
   "navbar": {
     "home": "Home",
     "about":"About me",
+    "portfolio":"Portfolio",
     "lng-es": "Spanish",
     "lng-en": "English"
   },
   "home": {
-    "greeting_title": "Full-Stack web developer"
+    "greeting_title": "Full-Stack web developer",
+    "self_description_1": "Hey! My name is ",
+    "self_description_2": "I started my carreer in 2022. ",
+    "self_description_3": "I already have 2 projects ",
+    "self_description_4": "under my belt and ",
+    "self_description_5": "keep going for more!",
+    "name": "Alejandro Manouellian."
   }
 }

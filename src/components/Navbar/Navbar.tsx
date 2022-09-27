@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 export default function Navbar() {
   const [t, i18n] = useTranslation<string>("global")
   const [activeLanguage, setActiveLanguage] = useState<boolean>(false)
-  const [activeWindow, setActiveWindow] = useState<{homeActive: boolean, aboutActive: boolean}>({homeActive: true, aboutActive: false})
+  const [activeWindow, setActiveWindow] = useState<{homeActive?: boolean, aboutActive?: boolean, portfolioActive?: boolean}>({homeActive: true, aboutActive: false, portfolioActive: false})
 
   function handleLanguageChange(e: React.MouseEvent<HTMLButtonElement>) {
     const target = e.target as HTMLButtonElement;
@@ -22,16 +22,12 @@ export default function Navbar() {
 
   function handleActiveWindow(e: React.MouseEvent<HTMLButtonElement>) {
     const target = e.target as HTMLButtonElement;
-    if (target.name === 'homeActive') {
-      setActiveWindow({homeActive: true, aboutActive: false })
-    }  else {
-      setActiveWindow({homeActive: false, aboutActive: true})
-    }
+    
+    setActiveWindow({[target.name]: true})
   }
 
   useEffect(() => {
     console.log(activeWindow);
-    
   }, [activeWindow])
 
   return (
@@ -40,6 +36,7 @@ export default function Navbar() {
         <h3 className={s.nameTitle}>Alejandro Manouellian</h3>
         <div className={s.navLinksContainer}>
           <Link to='/'><button type='button' name='homeActive' className={`${s.link} ${activeWindow.homeActive ? s.activeWindow : null}`} onClick={handleActiveWindow}>{t('navbar.home')}</button></Link>
+          <Link to='/Portfolio'><button type='button' name='portfolioActive' className={`${s.link} ${activeWindow.portfolioActive ? s.activeWindow : null}`} onClick={handleActiveWindow}>{t('navbar.portfolio')}</button></Link>
           <Link to='/About'><button type='button' name='aboutActive' className={`${s.link} ${activeWindow.aboutActive ? s.activeWindow : null}`} onClick={handleActiveWindow}>{t('navbar.about')}</button></Link>
         </div>
       </ul>
