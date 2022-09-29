@@ -26,17 +26,12 @@ export default function Navbar() {
     setActiveWindow({[target.name]: true})
   }
 
-  useEffect(() => {
-    console.log(activeWindow);
-  }, [activeWindow])
-
   return (
     <div className={s.mainContainer}>
       <ul className={s.listContainer}>
         <h3 className={s.nameTitle}>Alejandro Manouellian</h3>
         <div className={s.navLinksContainer}>
           <Link to='/'><button type='button' name='homeActive' className={`${s.link} ${activeWindow.homeActive ? s.activeWindow : null}`} onClick={handleActiveWindow}>{t('navbar.home')}</button></Link>
-          <Link to='/Portfolio'><button type='button' name='portfolioActive' className={`${s.link} ${activeWindow.portfolioActive ? s.activeWindow : null}`} onClick={handleActiveWindow}>{t('navbar.portfolio')}</button></Link>
           <Link to='/About'><button type='button' name='aboutActive' className={`${s.link} ${activeWindow.aboutActive ? s.activeWindow : null}`} onClick={handleActiveWindow}>{t('navbar.about')}</button></Link>
         </div>
       </ul>

@@ -4,7 +4,7 @@
     "about":"Sobre mi",
     "portfolio":"Portfolio",
     "lng-es": "Español",
-    "lng-en": "Ingles"
+    "lng-en": "English"
   },
   "home": {
     "greeting_title": "Desarrollador web Full-Stack",
@@ -14,5 +14,8 @@
     "self_description_4": "individuales y grupales ",
     "self_description_5": "y sigo adelante por más!",
     "name": "Alejandro Manouellian."
+  },
+  "carousel": {
+    "title": "Mis proyectos"
   }
 }
