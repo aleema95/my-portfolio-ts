@@ -7,6 +7,28 @@
   justify-content:  space-evenly;
   align-items: center;
 
+  .logosContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: fixed;
+    left: 25px;
+    .linkedinLogo {
+      background-color: $yellow-color;
+      width: 50px;
+      border-radius: 20%;
+      border: 2px solid $yellow-color;
+    }
+
+    .githubLogo {
+      background-color: $yellow-color;
+      width: 50px;
+      border-radius: 50%;
+      border: 2px solid $yellow-color;
+    }
+  }
+
+  
   .phantomDiv {
     width: 20%;
   }
