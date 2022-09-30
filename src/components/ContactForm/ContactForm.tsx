@@ -22,7 +22,7 @@ export default function ContactForm() {
         </div>
         <div className={s.messageInputContainer}>
           <label>Message</label>
-          <input type="text-area" />
+          <textarea></textarea>
         </div>
         <input className={s.submitBtn} type="submit" />
       </form>

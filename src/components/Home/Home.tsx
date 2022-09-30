@@ -1,6 +1,7 @@
 import s from './Home.module.scss'
 import { useTranslation } from 'react-i18next'
 import Portfolio from '../Portfolio/Portfolio'
+import ContactForm from '../ContactForm/ContactForm'
 import linkedIn_logo from '../../assets/images/linkedin-logo.png'
 import github_logo from '../../assets/images/github.png'
 import { useEffect, useRef } from 'react'
@@ -36,6 +37,7 @@ export default function Home() {
         <div className={s.phantomDiv}></div>
       </div>
         <Portfolio carouselSection={carouselSection} />
+      <ContactForm />
     </>
   )
 }

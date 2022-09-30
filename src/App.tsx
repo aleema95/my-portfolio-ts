@@ -8,12 +8,11 @@ import ContactForm from './components/ContactForm/ContactForm';
 function App() {
   return (
     <div className="App">
-      {/* <Navbar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/About" element={<About />}/>
-      </Routes> */}
-      <ContactForm />
+      </Routes>
     </div>
   );
 }
