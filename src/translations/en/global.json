@@ -17,5 +17,13 @@
   },
   "carousel": {
     "title": "My projects"
+  }, 
+  "contact": {
+    "contactTitle_label": "CONTACT",
+    "name_label": "Name",
+    "lastName_label": "Last Name",
+    "email_label": "Email",
+    "message_label": "Message",
+    "submit_btn": "Submit"
   }
 }
