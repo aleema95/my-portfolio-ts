@@ -30,20 +30,30 @@ export default function ContactForm() {
     )
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLInputElement>): void => {
-    const target = e.target
+  const handleSubmit = (e: any): void => {
+    const target = e.target as HTMLFormElement
+    console.log(target);
+    
     e.preventDefault()
     const templateId = 'template_b8gwocb';
     const userId = 'NIVAkWd-Q0ddllGX1';
     const serviceId = 'service_mdtwkgr';
-    emailjs.sendForm(templateId, serviceId, target )
+
+    emailjs.sendForm(serviceId, templateId,  target, userId)
+
+    setUserInput({
+      name: '',
+      last_name: '',
+      email: '',
+      message: ''
+    })
     // sendEmail(templateId, serviceId, e.target, userId)
   }
 
   return (
     <div className={s.formContainer}>
       <h1 className={s.contactText}>{t("contact.contactTitle_label")}</h1>
-      <form action="" className={s.form}>
+      <form action="POST" className={s.form} onSubmit={handleSubmit}>
         <div className={s.nameLastNameContainer}>
           <div className={s.nameInputContainer}>
             <label>{t("contact.name_label")}</label>
@@ -62,7 +72,7 @@ export default function ContactForm() {
           <label>{t("contact.message_label")}</label>
           <textarea name='message' value={userInput.message} onChange={handleChange}></textarea>
         </div>
-        <input className={s.submitBtn} type="submit" value={t("contact.submit_btn")} onClick={handleSubmit}/>
+        <button className={s.submitBtn} type="submit">{t("contact.submit_btn")}</button>
       </form>
     </div>
   )

@@ -14,10 +14,6 @@ export default function Home() {
 
   const scrollToCarousel = () => carouselSection.current?.scrollIntoView()
 
-  useEffect(() => {
-    console.log(carouselSection);
-  }, [carouselSection])
-
   return (
     <>
       <div className={s.mainContainer}>
