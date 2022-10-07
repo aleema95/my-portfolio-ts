@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import s from './ContactForm.module.scss'
-import { errorHandlers, userInput } from '../../types/types';
+import { userInput } from '../../types/types';
 import { useTranslation } from 'react-i18next'
 import emailjs from 'emailjs-com';
 

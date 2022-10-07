@@ -4,13 +4,11 @@ import s from './Portfolio.module.scss'
 import JobHub from '../../assets/images/JobHub.png'
 import gameFlow from '../../assets/images/gameFlow.png'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { PortfolioProps } from '../../types/types'
 import { Carousel } from 'react-responsive-carousel';
 
-type Props = {
-  carouselSection: React.LegacyRef<HTMLDivElement>
-}
 
-export default function Portfolio(props: Props) {
+export default function Portfolio(props: PortfolioProps) {
   const { carouselSection } = props;
   const [t, i18n] = useTranslation<string>("global")
   
