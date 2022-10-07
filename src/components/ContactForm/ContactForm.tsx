@@ -30,9 +30,10 @@ export default function ContactForm() {
     )
   }
 
-  const handleSubmit = (e: any): void => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     const target = e.target as HTMLFormElement
-    console.log(target);
+    console.log(e);
+    console.log('TARGET: ' ,target);
     
     e.preventDefault()
     const templateId = 'template_b8gwocb';
@@ -53,7 +54,7 @@ export default function ContactForm() {
   return (
     <div className={s.formContainer}>
       <h1 className={s.contactText}>{t("contact.contactTitle_label")}</h1>
-      <form action="POST" className={s.form} onSubmit={handleSubmit}>
+      <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.nameLastNameContainer}>
           <div className={s.nameInputContainer}>
             <label>{t("contact.name_label")}</label>
