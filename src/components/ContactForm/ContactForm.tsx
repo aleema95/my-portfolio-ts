@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import s from './ContactForm.module.scss'
+import { errorHandlers, userInput } from '../../types/types';
 import { useTranslation } from 'react-i18next'
 import emailjs from 'emailjs-com';
 
-interface userInput {
-  name: string,
-  last_name: string,
-  email: string,
-  message: string,
-}
 
 export default function ContactForm() {
   const [t, i18n] = useTranslation<string>("global")
@@ -30,17 +24,22 @@ export default function ContactForm() {
     )
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     const target = e.target as HTMLFormElement
-    console.log(e);
-    console.log('TARGET: ' ,target);
-    
     e.preventDefault()
-    const templateId = 'template_b8gwocb';
-    const userId = 'NIVAkWd-Q0ddllGX1';
-    const serviceId = 'service_mdtwkgr';
-
-    emailjs.sendForm(serviceId, templateId,  target, userId)
+    
+    try {
+      const templateId = 'template_b8gwocb';
+      const userId = 'NIVAkWd-Q0ddllGX1';
+      const serviceId = 'service_mdtwkgr';
+  
+      await emailjs.sendForm(serviceId, templateId,  target, userId)
+      alert('El mensaje fue enviado correctamente')
+  
+      
+    } catch (error) {
+      alert('Hubo un error al enviar el mail, por favor intente nuevamente.')
+    }
 
     setUserInput({
       name: '',
@@ -48,7 +47,6 @@ export default function ContactForm() {
       email: '',
       message: ''
     })
-    // sendEmail(templateId, serviceId, e.target, userId)
   }
 
   return (
