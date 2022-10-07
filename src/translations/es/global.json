@@ -24,6 +24,10 @@
     "lastName_label": "Apellido",
     "email_label": "Email",
     "message_label": "Mensaje",
-    "submit_btn": "Enviar"
+    "submit_btn": "Enviar",
+    "alert": {
+      "success": "El mensaje fue enviado correctamente.",
+      "failure": "Hubo un error al enviar el mail, por favor intente nuevamente."
+    }
   }
 }

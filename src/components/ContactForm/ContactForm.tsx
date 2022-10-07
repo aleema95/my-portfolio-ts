@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import s from './ContactForm.module.scss'
 import { userInput } from '../../types/types';
 import { useTranslation } from 'react-i18next'
@@ -34,11 +34,10 @@ export default function ContactForm() {
       const serviceId = 'service_mdtwkgr';
   
       await emailjs.sendForm(serviceId, templateId,  target, userId)
-      alert('El mensaje fue enviado correctamente')
-  
-      
+      alert(`${t("contact.alert.success")}`)
+
     } catch (error) {
-      alert('Hubo un error al enviar el mail, por favor intente nuevamente.')
+      alert(`${t("contact.alert.failure")}`)
     }
 
     setUserInput({
