@@ -2,6 +2,20 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: $black-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $yellow-color;
 }
 
 body {
