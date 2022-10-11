@@ -12,3 +12,10 @@ export interface AlertProps {
 export type PortfolioProps = {
   carouselSection: React.LegacyRef<HTMLDivElement>
 }
+
+export interface Errors {
+  name?: string,
+  last_name?: string,
+  email?: string,
+  message?: string,
+}

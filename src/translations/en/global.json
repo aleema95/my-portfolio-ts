@@ -28,6 +28,11 @@
     "alert": {
       "success": "Message sent successfully.",
       "failure": "An error occurred, please try again."
+    },
+    "errors": {
+      "field_required": "This field is required",
+      "only_letters": "Must contain only letters",
+      "invalid_mail": "Invalid e-mail"
     }
   }
 }

@@ -13,10 +13,6 @@ export default function Portfolio(props: PortfolioProps) {
   const [t, i18n] = useTranslation<string>("global")
   const [hoverRef, isHovered] = useHover<HTMLParagraphElement>()
 
-  useEffect(() => {
-    console.log(isHovered);
-    
-  }, [isHovered])
   return (
     // <animated.div style={fadeIn}>
     //   <h1 className={s.Title}>Portfolio</h1>  
