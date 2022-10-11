@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import s from './ContactForm.module.scss'
 import { userInput } from '../../types/types';
 import { useTranslation } from 'react-i18next'
 import emailjs from 'emailjs-com';
-
+import Swal from 'sweetalert2'
 
 export default function ContactForm() {
   const [t, i18n] = useTranslation<string>("global")
@@ -34,11 +34,27 @@ export default function ContactForm() {
       const serviceId = 'service_mdtwkgr';
   
       await emailjs.sendForm(serviceId, templateId,  target, userId)
-      alert('El mensaje fue enviado correctamente')
-  
-      
+      Swal.fire({
+        title: 'Success',
+        position: 'center',
+        text: `${t("contact.alert.success")}`,
+        color: '#be9e5f',
+        background: '#000000',
+        showConfirmButton: false,
+        timer: 1700,
+      })
+
     } catch (error) {
-      alert('Hubo un error al enviar el mail, por favor intente nuevamente.')
+      Swal.fire({
+        title: 'Error',
+        position: 'center',
+        text: `${t("contact.alert.failure")}`,
+        color: '#be9e5f',
+        background: '#000000',
+        showConfirmButton: false,
+        timer: 1700,
+      })
+      // alert(`${t("contact.alert.failure")}`)
     }
 
     setUserInput({
