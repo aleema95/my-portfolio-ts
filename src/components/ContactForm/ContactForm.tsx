@@ -74,9 +74,12 @@ export default function ContactForm() {
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.nameLastNameContainer}>
           <div className={s.nameInputContainer}>
-            <div>
+            <div className={s.labelAndErrorsContainer}>
             <label>{t("contact.name_label")}</label>
-            <p>{t()}</p>
+            <div>
+              <p>{t("contact.errors.field_required")}</p>
+              <p>{t("contact.errors.only_letters")}</p>
+            </div>
             </div>
             <input type="text" name='name' value={userInput.name} onChange={handleChange}/>
           </div>

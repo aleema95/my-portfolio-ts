@@ -19,3 +19,13 @@ export interface Errors {
   email?: string,
   message?: string,
 }
+
+export interface TechnologyProps {
+  name: string,
+  dir: string
+}
+
+export interface TechnologiesData {
+  name: string,
+  dir: string
+}
