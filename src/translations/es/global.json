@@ -28,6 +28,11 @@
     "alert": {
       "success": "El mensaje fue enviado correctamente.",
       "failure": "Hubo un error al enviar el mail, por favor intente nuevamente."
+    },
+    "errors": {
+      "field_required": "este campo es obligatorio",
+      "only_letters": "Debe contener solo letras",
+      "invalid_mail": "El mail es inválido."
     }
   }
 }

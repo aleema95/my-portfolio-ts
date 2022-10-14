@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import s from './ContactForm.module.scss'
-import { userInput } from '../../types/types';
-import { useTranslation } from 'react-i18next'
+import { userInput, Errors } from '../../types/types';
+import { useTranslation } from 'react-i18next';
 import emailjs from 'emailjs-com';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { validation } from '../../functions/functions'
 
 export default function ContactForm() {
   const [t, i18n] = useTranslation<string>("global")
+  const [formErrors, setFormErrors] = useState<Errors>()
   const [userInput, setUserInput] = useState<userInput>({
     name: '',
     last_name: '',
@@ -20,8 +22,9 @@ export default function ContactForm() {
     setUserInput({ 
       ...userInput,
       [key]: value
-    }
-    )
+    })
+
+    setFormErrors(validation(userInput))
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -71,7 +74,13 @@ export default function ContactForm() {
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.nameLastNameContainer}>
           <div className={s.nameInputContainer}>
+            <div className={s.labelAndErrorsContainer}>
             <label>{t("contact.name_label")}</label>
+            <div>
+              <p>{t("contact.errors.field_required")}</p>
+              <p>{t("contact.errors.only_letters")}</p>
+            </div>
+            </div>
             <input type="text" name='name' value={userInput.name} onChange={handleChange}/>
           </div>
           <div className={s.lastNameInputContainer}>

@@ -4,8 +4,8 @@ import Portfolio from '../Portfolio/Portfolio'
 import ContactForm from '../ContactForm/ContactForm'
 import linkedIn_logo from '../../assets/images/linkedin-logo.png'
 import github_logo from '../../assets/images/github.png'
-import { useEffect, useRef } from 'react'
-
+import { useRef } from 'react'
+import Technologies from './Technologies/Technologies'
 
 
 export default function Home() {
@@ -13,6 +13,10 @@ export default function Home() {
   const carouselSection = useRef<HTMLDivElement>(null)
 
   const scrollToCarousel = () => carouselSection.current?.scrollIntoView()
+
+  // useEffect(() => {
+  //   console.log(technologies[0].img_url);
+  // }, [])
 
   return (
     <>
@@ -30,7 +34,8 @@ export default function Home() {
             <button onClick={scrollToCarousel}>{t('carousel.title')}</button>
           </div>
         </div>
-        <div className={s.phantomDiv}></div>
+        {/* <div className={s.phantomDiv}></div> */}
+          <Technologies />
       </div>
         <Portfolio carouselSection={carouselSection} />
       <ContactForm />
