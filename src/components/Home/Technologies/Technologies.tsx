@@ -1,5 +1,6 @@
 import React from 'react'
 import { TechnologiesData } from '../../../types/types'
+import { motion } from "framer-motion";
 import s from './Technologies.module.scss'
 import express from "../../../assets/images/technologies/express.png"
 import git from "../../../assets/images/technologies/git.png"
@@ -15,24 +16,12 @@ import Technology from './Technology/Technology'
 
 const Technologies_DB: Array<TechnologiesData> = [
   {
-    name:"Express",
-    dir: express
-  },
-  {
-    name:"git",
-    dir:git
-  },
-  {
     name:"javascript",
     dir:javascript
   },
   {
-    name:"node",
-    dir:node
-  },
-  {
-    name:"postgres",
-    dir:postgres
+    name:"typescript",
+    dir:typescript
   },
   {
     name:"react",
@@ -47,24 +36,43 @@ const Technologies_DB: Array<TechnologiesData> = [
     dir:sass
   },
   {
-    name:"sequelize",
-    dir:sequelize
+    name:"Express",
+    dir: express
   },
   {
-    name:"typescript",
-    dir:typescript
+    name:"node",
+    dir:node
+  },
+  {
+    name:"git",
+    dir:git
+  },
+  {
+    name:"postgres",
+    dir:postgres
+  },
+ 
+  {
+    name:"sequelize",
+    dir:sequelize
   },
 ]
 
 export default function Technologies () {
 
-
   return (
     <div className={s.mainContainer}>
-      {Technologies_DB.map( (t: {name: string, dir: string}) => <Technology 
-                                      name={t.name}  
-                                      dir={t.dir}/>
-      )}
+      <h1 className={s.techTitle}>Technologies</h1>
+      <div 
+        className={s.technologiesContainer}
+        >
+        {Technologies_DB.map( (t: {name: string, dir: string}, i: number) => <Technology 
+                                        name={t.name}  
+                                        dir={t.dir}
+                                        index={i}
+                                        />
+        )}
+      </div>
     </div>
   )
 }

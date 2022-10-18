@@ -1,6 +1,15 @@
+@import '../../../variables';
+
 .mainContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
   width: 30%;
+
+  .techTitle {
+    color: $yellow-color;
+  }
+
+  .technologiesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }

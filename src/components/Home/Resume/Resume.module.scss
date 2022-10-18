@@ -1,0 +1,12 @@
+@import '../../../_variables.scss';
+
+.cvLogo {
+  background-color: $yellow-color;
+  width: 50px;
+  border-radius: 10%;
+  border: 2px solid $yellow-color;
+  
+  &:hover {
+    background-color: $dark-gray;
+  }
+}
