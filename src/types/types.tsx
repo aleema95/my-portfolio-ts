@@ -22,10 +22,15 @@ export interface Errors {
 
 export interface TechnologyProps {
   name: string,
-  dir: string
+  dir: string,
+  index: number
 }
 
 export interface TechnologiesData {
   name: string,
-  dir: string
+  dir: string,
+}
+
+export interface ResumeProps {
+  language: string,
 }
