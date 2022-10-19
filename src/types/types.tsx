@@ -14,10 +14,13 @@ export type PortfolioProps = {
 }
 
 export interface Errors {
-  name?: string,
-  last_name?: string,
-  email?: string,
-  message?: string,
+  name?: boolean,
+  nameOnlyLetters?: boolean | null,
+  last_name?: boolean,
+  last_nameOnlyLetters?: boolean | null,
+  email?: boolean,
+  invalid_email?: boolean | null,
+  message?: boolean,
 }
 
 export interface TechnologyProps {

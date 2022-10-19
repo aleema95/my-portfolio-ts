@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './ContactForm.module.scss'
 import { userInput, Errors } from '../../types/types';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +8,7 @@ import { validation } from '../../functions/functions'
 
 export default function ContactForm() {
   const [t, i18n] = useTranslation<string>("global")
-  const [formErrors, setFormErrors] = useState<Errors>()
+  const [formErrors, setFormErrors] = useState<Errors>({})
   const [userInput, setUserInput] = useState<userInput>({
     name: '',
     last_name: '',
@@ -24,8 +24,13 @@ export default function ContactForm() {
       [key]: value
     })
 
-    setFormErrors(validation(userInput))
+    // setFormErrors(validation(userInput))
   }
+
+  useEffect(() => {
+    setFormErrors(validation(userInput))
+  }, [userInput])
+  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     const target = e.target as HTMLFormElement
@@ -57,7 +62,6 @@ export default function ContactForm() {
         showConfirmButton: false,
         timer: 1700,
       })
-      // alert(`${t("contact.alert.failure")}`)
     }
 
     setUserInput({
@@ -68,6 +72,10 @@ export default function ContactForm() {
     })
   }
 
+  useEffect(() => {
+    console.log(formErrors);
+  }, [formErrors])
+
   return (
     <div className={s.formContainer}>
       <h1 className={s.contactText}>{t("contact.contactTitle_label")}</h1>
@@ -76,24 +84,41 @@ export default function ContactForm() {
           <div className={s.nameInputContainer}>
             <div className={s.labelAndErrorsContainer}>
             <label>{t("contact.name_label")}</label>
-            <div>
-              <p>{t("contact.errors.field_required")}</p>
-              <p>{t("contact.errors.only_letters")}</p>
+            <div className={`${s.errors} `}>
+              <p className={`${formErrors?.name ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
+              <p className={`${formErrors?.nameOnlyLetters ? null : s.validField}`}>{t("contact.errors.only_letters")}</p>
             </div>
             </div>
             <input type="text" name='name' value={userInput.name} onChange={handleChange}/>
           </div>
           <div className={s.lastNameInputContainer}>
-            <label>{t("contact.lastName_label")}</label>
+            <div className={s.labelAndErrorsContainer}>
+              <label>{t("contact.lastName_label")}</label>
+              <div className={s.errors}>
+                <p className={`${formErrors?.last_name ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
+                <p className={`${formErrors?.last_nameOnlyLetters ? null : s.validField}`}>{t("contact.errors.only_letters")}</p>
+              </div>
+            </div>
             <input type="text" name='last_name' value={userInput.last_name} onChange={handleChange}/>
           </div>
         </div>
         <div className={s.emailInputContainer}>
-          <label>{t("contact.email_label")}</label>
+          <div className={s.labelAndErrorsContainer}>
+            <label>{t("contact.email_label")}</label>
+            <div className={s.errors}>
+              <p className={`${formErrors?.email ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
+              <p className={`${formErrors?.invalid_email ? null : s.validField}`}>{t("contact.errors.invalid_mail")}</p>
+            </div>
+          </div>
           <input type="text" name='email' value={userInput.email} onChange={handleChange}/>
         </div>
         <div className={s.messageInputContainer}>
-          <label>{t("contact.message_label")}</label>
+          <div className={s.labelAndErrorsContainer}>
+            <label>{t("contact.message_label")}</label>
+            <div className={s.errors}>
+                <p className={`${formErrors?.message ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
+            </div>
+          </div>
           <textarea name='message' value={userInput.message} onChange={handleChange}></textarea>
         </div>
         <button className={s.submitBtn} type="submit">{t("contact.submit_btn")}</button>

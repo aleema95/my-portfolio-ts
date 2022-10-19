@@ -1,13 +1,5 @@
 @import '../../_variables.scss';
 
-.swal-custom-container {
-  border: 2px solid $yellow-color;
-}
-
-.swal2Modal {
-  border: 1px solid $yellow-color;
-}
-
 .formContainer {
   width: 900px;
   height: 500px;
@@ -115,6 +107,9 @@
         align-items: center;
         justify-content: center;
         width: 100%;
+
+          
+
           label {
             align-self: flex-start;
             user-select: none;
@@ -146,6 +141,32 @@
     color: $yellow-color;
     background-color: $black-color;
     user-select: none;
+  }
+
+  .nameInputContainer, 
+  .lastNameInputContainer,
+  .emailInputContainer,
+  .messageInputContainer {
+
+    .labelAndErrorsContainer{
+      display: flex;
+      justify-content: space-between;
+      align-items: space-evenly;
+      width: 100%;
+      .errors {
+
+        p {
+          color: rgb(223, 119, 119);
+          text-align: start;
+          font-size: 0.8rem;
+          margin: 0;
+        }
+
+        .validField {
+          color: rgb(113, 211, 113);
+        }
+      }
+    }
   }
   
 }
