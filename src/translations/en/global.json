@@ -13,7 +13,13 @@
     "self_description_3": "I already have 2 projects ",
     "self_description_4": "under my belt and ",
     "self_description_5": "keep going for more!",
-    "name": "Alejandro Manouellian."
+    "name": "Alejandro Manouellian.",
+    "technologies": {
+      "title":"Technologies"
+    },      
+    "resume": {
+      "download_text": "Download"
+    }
   },
   "carousel": {
     "title": "My projects"
@@ -30,9 +36,9 @@
       "failure": "An error occurred, please try again."
     },
     "errors": {
-      "field_required": "This field is required",
-      "only_letters": "Must contain only letters",
-      "invalid_mail": "Invalid e-mail"
+      "field_required": "*This field is required",
+      "only_letters": "*Must contain only letters",
+      "invalid_mail": "*Invalid e-mail"
     }
   }
 }
