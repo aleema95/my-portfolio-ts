@@ -4,7 +4,7 @@ import Portfolio from '../Portfolio/Portfolio'
 import ContactForm from '../ContactForm/ContactForm'
 import linkedIn_logo from '../../assets/images/linkedin-logo.png'
 import github_logo from '../../assets/images/github.png'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import Technologies from './Technologies/Technologies'
 import { motion } from 'framer-motion'
 import Resume from './Resume/Resume'
@@ -20,11 +20,16 @@ export default function Home() {
   return (
     <>
       <div className={s.mainContainer}>
-        <div className={s.logosContainer} >
+        <motion.div 
+          className={s.logosContainer} 
+          initial={{x:-100}}
+          animate={{x:0}}
+          transition={{duration: 0.8, delay: 0.5}}
+          >
           <a href="https://www.linkedin.com/in/alejandro-manouellian/"><img className={s.linkedinLogo} src={linkedIn_logo} alt="link to linkedin logo" /></a>  
           <a href="https://github.com/aleema95"><img className={s.githubLogo} src={github_logo} alt="link to github logo" /></a>  
           <Resume language={i18n.language} />
-        </div>
+        </motion.div>
         <div className={s.mainTextContainer}>
           <motion.h1 initial={{ opacity: 0}} animate={{ opacity: 1}} transition={{ delay: 0 ,duration: mainTextTransitionTime}} className={s.mainTitle}>{t('home.greeting_title')}</motion.h1>
           <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} transition={{ delay: 0.5 ,duration: mainTextTransitionTime}}>

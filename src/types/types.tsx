@@ -10,7 +10,7 @@ export interface AlertProps {
 }
 
 export type PortfolioProps = {
-  carouselSection: React.LegacyRef<HTMLDivElement>
+  carouselSection: React.Ref<HTMLDivElement>
 }
 
 export interface Errors {

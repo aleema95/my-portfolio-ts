@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import s from './Portfolio.module.scss'
 import JobHub from '../../assets/images/JobHub.png'
@@ -7,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { PortfolioProps } from '../../types/types'
 import { Carousel } from 'react-responsive-carousel';
 import { useHover } from '../../hooks/hooks'
+import { motion } from 'framer-motion';
 
 export default function Portfolio(props: PortfolioProps) {
   const { carouselSection } = props;
@@ -14,10 +14,13 @@ export default function Portfolio(props: PortfolioProps) {
   const [hoverRef, isHovered] = useHover<HTMLParagraphElement>()
 
   return (
-    // <animated.div style={fadeIn}>
-    //   <h1 className={s.Title}>Portfolio</h1>  
-    // </animated.div>
-      <div ref={carouselSection} className={s.mainContainer}>
+      <motion.div
+         ref={carouselSection} 
+         className={s.mainContainer}
+         initial={{opacity:0}}
+         animate={{opacity:1}}
+         transition={{duration: 0.8, delay: 1}}
+         >
         <h1 className={s.title}>{t('carousel.title')}</h1>
         <div className={s.carouselContainer}>
           <Carousel 
@@ -41,6 +44,6 @@ export default function Portfolio(props: PortfolioProps) {
             </div>
           </Carousel>
         </div>
-      </div>
+      </motion.div>
   )
 }

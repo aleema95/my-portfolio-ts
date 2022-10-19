@@ -13,6 +13,7 @@ import sass from "../../../assets/images/technologies/sass.png"
 import sequelize from "../../../assets/images/technologies/sequelize.png"
 import typescript from "../../../assets/images/technologies/typescript.png"
 import Technology from './Technology/Technology'
+import { useTranslation } from 'react-i18next';
 
 const Technologies_DB: Array<TechnologiesData> = [
   {
@@ -60,9 +61,11 @@ const Technologies_DB: Array<TechnologiesData> = [
 
 export default function Technologies () {
 
+  const [t, i18n] = useTranslation<string>("global")
+
   return (
     <div className={s.mainContainer}>
-      <h1 className={s.techTitle}>Technologies</h1>
+      <h1 className={s.techTitle}>{t("home.technologies.title")}</h1>
       <div 
         className={s.technologiesContainer}
         >

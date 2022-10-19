@@ -4,6 +4,7 @@ import { userInput, Errors } from '../../types/types';
 import { useTranslation } from 'react-i18next';
 import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion'
 import { validation } from '../../functions/functions'
 
 export default function ContactForm() {
@@ -77,7 +78,12 @@ export default function ContactForm() {
   }, [formErrors])
 
   return (
-    <div className={s.formContainer}>
+    <motion.div 
+      className={s.formContainer}
+      initial={{x:100}}
+      animate={{x:0}}
+      transition={{duration: 0.8, delay: 0.5}}
+      >
       <h1 className={s.contactText}>{t("contact.contactTitle_label")}</h1>
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.nameLastNameContainer}>
@@ -123,6 +129,6 @@ export default function ContactForm() {
         </div>
         <button className={s.submitBtn} type="submit">{t("contact.submit_btn")}</button>
       </form>
-    </div>
+    </motion.div>
   )
 }
