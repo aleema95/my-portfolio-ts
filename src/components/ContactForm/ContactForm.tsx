@@ -36,6 +36,19 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     const target = e.target as HTMLFormElement
     e.preventDefault()
+
+    if(Object.keys(formErrors).length) {
+      Swal.fire({
+        title: 'Error',
+        position: 'top-end',
+        text: `${t("contact.alert.failure")}`,
+        color: '#000000',
+        background: '#be9e5f',
+        showConfirmButton: false,
+        timer: 1700,
+      })
+      return
+    }
     
     try {
       const templateId = 'template_b8gwocb';
@@ -74,7 +87,8 @@ export default function ContactForm() {
   }
 
   useEffect(() => {
-    console.log(formErrors);
+    console.log(Object.keys(formErrors).length);
+    
   }, [formErrors])
 
   return (
