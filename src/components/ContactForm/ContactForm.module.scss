@@ -17,10 +17,6 @@
   top: -1400px;
   right: -1870px;
   transition: right .7s;
-  
-  &:hover {
-    right: -1030px;
-  }
 
   .form {
     width: 95%;
@@ -127,8 +123,6 @@
             font-family: $font-kanit;
           }
       }
-
-      
     }
   }
   .contactText {
@@ -141,6 +135,7 @@
     color: $yellow-color;
     background-color: $black-color;
     user-select: none;
+    cursor: pointer;
   }
 
   .nameInputContainer, 
@@ -168,5 +163,8 @@
       }
     }
   }
-  
+}
+
+.openModal {
+    right: -1030px;
 }

@@ -33,7 +33,8 @@
     "submit_btn": "Submit",
     "alert": {
       "success": "Message sent successfully.",
-      "failure": "An error occurred, please try again."
+      "failure": "An error occurred, please try again.",
+      "empty_field": "All fields are required!"
     },
     "errors": {
       "field_required": "*This field is required",
