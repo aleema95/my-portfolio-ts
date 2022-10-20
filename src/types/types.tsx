@@ -5,6 +5,8 @@ export interface userInput {
   message: string,
 }
 
+// export type Comidas = "ensalada" | "sopa"
+
 export interface AlertProps {
   message: string
 }
@@ -36,4 +38,8 @@ export interface TechnologiesData {
 
 export interface ResumeProps {
   language: string,
+}
+
+export interface ProcessEnv {
+  [key: string]: string | undefined
 }

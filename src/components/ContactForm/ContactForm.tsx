@@ -7,7 +7,9 @@ import Swal from 'sweetalert2';
 import { motion } from 'framer-motion'
 import { validation } from '../../functions/functions'
 
+
 export default function ContactForm() {
+  const { REACT_APP_TEMPLATE_ID, REACT_APP_USER_ID, REACT_APP_SERVICE_ID } = process.env
   const [t, i18n] = useTranslation<string>("global")
   const [formErrors, setFormErrors] = useState<Errors>({})
   const [modalIsActive, setmodalIsActive] = useState<Boolean>(false)
@@ -53,9 +55,9 @@ export default function ContactForm() {
     }
     
     try {
-      const templateId = 'template_b8gwocb';
-      const userId = 'NIVAkWd-Q0ddllGX1';
-      const serviceId = 'service_mdtwkgr';
+      const templateId: any = REACT_APP_TEMPLATE_ID;
+      const userId: any = REACT_APP_USER_ID;
+      const serviceId: any = REACT_APP_SERVICE_ID;
   
       await emailjs.sendForm(serviceId, templateId, target, userId)
       Swal.fire({
@@ -69,6 +71,8 @@ export default function ContactForm() {
       })
 
     } catch (error) {
+      console.error(error);
+      
       Swal.fire({
         title: 'Error',
         position: 'center',
