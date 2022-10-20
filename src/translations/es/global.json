@@ -33,7 +33,8 @@
     "submit_btn": "Enviar",
     "alert": {
       "success": "El mensaje fue enviado correctamente.",
-      "failure": "Hubo un error al enviar el mail, por favor intente nuevamente."
+      "failure": "Hubo un error al enviar el mail, por favor intente nuevamente.",
+      "empty_field": "Falta llenar campos!"
     },
     "errors": {
       "field_required": "Este campo es obligatorio",

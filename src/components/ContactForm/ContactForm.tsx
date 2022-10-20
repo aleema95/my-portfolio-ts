@@ -10,6 +10,7 @@ import { validation } from '../../functions/functions'
 export default function ContactForm() {
   const [t, i18n] = useTranslation<string>("global")
   const [formErrors, setFormErrors] = useState<Errors>({})
+  const [modalIsActive, setmodalIsActive] = useState<Boolean>(false)
   const [userInput, setUserInput] = useState<userInput>({
     name: '',
     last_name: '',
@@ -24,14 +25,15 @@ export default function ContactForm() {
       ...userInput,
       [key]: value
     })
-
-    // setFormErrors(validation(userInput))
   }
 
   useEffect(() => {
     setFormErrors(validation(userInput))
   }, [userInput])
   
+  const openModal = (e: React.MouseEvent<HTMLHeadingElement>): void => {
+    setmodalIsActive(!modalIsActive)
+  }  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     const target = e.target as HTMLFormElement
@@ -40,8 +42,8 @@ export default function ContactForm() {
     if(Object.keys(formErrors).length) {
       Swal.fire({
         title: 'Error',
-        position: 'top-end',
-        text: `${t("contact.alert.failure")}`,
+        position: 'center',
+        text: `${t("contact.alert.empty_field")}`,
         color: '#000000',
         background: '#be9e5f',
         showConfirmButton: false,
@@ -55,13 +57,13 @@ export default function ContactForm() {
       const userId = 'NIVAkWd-Q0ddllGX1';
       const serviceId = 'service_mdtwkgr';
   
-      await emailjs.sendForm(serviceId, templateId,  target, userId)
+      await emailjs.sendForm(serviceId, templateId, target, userId)
       Swal.fire({
         title: 'Success',
         position: 'center',
         text: `${t("contact.alert.success")}`,
-        color: '#be9e5f',
-        background: '#000000',
+        color: '#000000',
+        background: '#be9e5f',
         showConfirmButton: false,
         timer: 1700,
       })
@@ -71,8 +73,8 @@ export default function ContactForm() {
         title: 'Error',
         position: 'center',
         text: `${t("contact.alert.failure")}`,
-        color: '#be9e5f',
-        background: '#000000',
+        color: '#000000',
+        background: '#be9e5f',
         showConfirmButton: false,
         timer: 1700,
       })
@@ -86,63 +88,58 @@ export default function ContactForm() {
     })
   }
 
-  useEffect(() => {
-    console.log(Object.keys(formErrors).length);
-    
-  }, [formErrors])
-
   return (
     <motion.div 
-      className={s.formContainer}
+      className={`${s.formContainer} ${modalIsActive ? s.openModal : null}`}
       initial={{x:100}}
       animate={{x:0}}
       transition={{duration: 0.8, delay: 0.5}}
       >
-      <h1 className={s.contactText}>{t("contact.contactTitle_label")}</h1>
-      <form className={s.form} onSubmit={handleSubmit}>
-        <div className={s.nameLastNameContainer}>
-          <div className={s.nameInputContainer}>
-            <div className={s.labelAndErrorsContainer}>
-            <label>{t("contact.name_label")}</label>
-            <div className={`${s.errors} `}>
-              <p className={`${formErrors?.name ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
-              <p className={`${formErrors?.nameOnlyLetters ? null : s.validField}`}>{t("contact.errors.only_letters")}</p>
+        <h1 onClick={openModal} className={s.contactText}>{t("contact.contactTitle_label")}</h1>
+        <form className={s.form} onSubmit={handleSubmit}>
+          <div className={s.nameLastNameContainer}>
+            <div className={s.nameInputContainer}>
+              <div className={s.labelAndErrorsContainer}>
+              <label>{t("contact.name_label")}</label>
+              <div className={`${s.errors} `}>
+                <p className={`${formErrors?.name ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
+                <p className={`${formErrors?.nameOnlyLetters ? null : s.validField}`}>{t("contact.errors.only_letters")}</p>
+              </div>
+              </div>
+              <input type="text" name='name' value={userInput.name} onChange={handleChange}/>
             </div>
+            <div className={s.lastNameInputContainer}>
+              <div className={s.labelAndErrorsContainer}>
+                <label>{t("contact.lastName_label")}</label>
+                <div className={s.errors}>
+                  <p className={`${formErrors?.last_name ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
+                  <p className={`${formErrors?.last_nameOnlyLetters ? null : s.validField}`}>{t("contact.errors.only_letters")}</p>
+                </div>
+              </div>
+              <input type="text" name='last_name' value={userInput.last_name} onChange={handleChange}/>
             </div>
-            <input type="text" name='name' value={userInput.name} onChange={handleChange}/>
           </div>
-          <div className={s.lastNameInputContainer}>
+          <div className={s.emailInputContainer}>
             <div className={s.labelAndErrorsContainer}>
-              <label>{t("contact.lastName_label")}</label>
+              <label>{t("contact.email_label")}</label>
               <div className={s.errors}>
-                <p className={`${formErrors?.last_name ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
-                <p className={`${formErrors?.last_nameOnlyLetters ? null : s.validField}`}>{t("contact.errors.only_letters")}</p>
+                <p className={`${formErrors?.email ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
+                <p className={`${formErrors?.invalid_email ? null : s.validField}`}>{t("contact.errors.invalid_mail")}</p>
               </div>
             </div>
-            <input type="text" name='last_name' value={userInput.last_name} onChange={handleChange}/>
+            <input type="text" name='email' value={userInput.email} onChange={handleChange}/>
           </div>
-        </div>
-        <div className={s.emailInputContainer}>
-          <div className={s.labelAndErrorsContainer}>
-            <label>{t("contact.email_label")}</label>
-            <div className={s.errors}>
-              <p className={`${formErrors?.email ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
-              <p className={`${formErrors?.invalid_email ? null : s.validField}`}>{t("contact.errors.invalid_mail")}</p>
+          <div className={s.messageInputContainer}>
+            <div className={s.labelAndErrorsContainer}>
+              <label>{t("contact.message_label")}</label>
+              <div className={s.errors}>
+                  <p className={`${formErrors?.message ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
+              </div>
             </div>
+            <textarea name='message' value={userInput.message} onChange={handleChange}></textarea>
           </div>
-          <input type="text" name='email' value={userInput.email} onChange={handleChange}/>
-        </div>
-        <div className={s.messageInputContainer}>
-          <div className={s.labelAndErrorsContainer}>
-            <label>{t("contact.message_label")}</label>
-            <div className={s.errors}>
-                <p className={`${formErrors?.message ? null : s.validField}`}>{t("contact.errors.field_required")}</p>
-            </div>
-          </div>
-          <textarea name='message' value={userInput.message} onChange={handleChange}></textarea>
-        </div>
-        <button className={s.submitBtn} type="submit">{t("contact.submit_btn")}</button>
-      </form>
+          <button className={s.submitBtn} type="submit">{t("contact.submit_btn")}</button>
+        </form>
     </motion.div>
   )
 }
