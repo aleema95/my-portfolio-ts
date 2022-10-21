@@ -1,0 +1,11 @@
+@import '../../../../variables';
+
+.container {
+  width: 130px;
+  font-size: 0.6rem;
+  color: $white-color;
+  .imgContainer {
+    width: 90px;
+  }
+}
+

@@ -1,5 +1,26 @@
+@import './variables.scss';
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: $black-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $yellow-color;
+}
+
 body {
   margin: 0;
+  background-color: $black-color;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

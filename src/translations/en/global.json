@@ -1,0 +1,45 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about":"About me",
+    "portfolio":"Portfolio",
+    "lng-es": "Español",
+    "lng-en": "English"
+  },
+  "home": {
+    "greeting_title": "Full-Stack web developer",
+    "self_description_1": "Hey! My name is ",
+    "self_description_2": "I started my carreer in 2022. ",
+    "self_description_3": "I already have 2 projects ",
+    "self_description_4": "under my belt and ",
+    "self_description_5": "keep going for more!",
+    "name": "Alejandro Manouellian.",
+    "technologies": {
+      "title":"Technologies"
+    },      
+    "resume": {
+      "download_text": "Download"
+    }
+  },
+  "carousel": {
+    "title": "My projects"
+  }, 
+  "contact": {
+    "contactTitle_label": "CONTACT",
+    "name_label": "Name",
+    "lastName_label": "Last Name",
+    "email_label": "Email",
+    "message_label": "Message",
+    "submit_btn": "Submit",
+    "alert": {
+      "success": "Message sent successfully.",
+      "failure": "An error occurred, please try again.",
+      "empty_field": "All fields are required!"
+    },
+    "errors": {
+      "field_required": "*This field is required",
+      "only_letters": "*Must contain only letters",
+      "invalid_mail": "*Invalid e-mail"
+    }
+  }
+}

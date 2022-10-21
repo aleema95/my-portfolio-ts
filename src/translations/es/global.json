@@ -1,0 +1,45 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about":"Sobre mi",
+    "portfolio":"Portfolio",
+    "lng-es": "Español",
+    "lng-en": "English"
+  },
+  "home": {
+    "greeting_title": "Desarrollador web Full-Stack",
+    "self_description_1": "Hola! Mi nombre es ",
+    "self_description_2": "Empecé mi carrera en el año 2022. ",
+    "self_description_3": "Ya tengo 2 proyectos ",
+    "self_description_4": "individuales y grupales ",
+    "self_description_5": "y sigo adelante por más!",
+    "name": "Alejandro Manouellian.",
+    "technologies": {
+      "title":"Tecnologías"
+    },   
+    "resume": {
+      "download_text": "Descargar"
+    }
+  },
+  "carousel": {
+    "title": "Mis proyectos"
+  },
+  "contact": {
+    "contactTitle_label": "CONTACTAME",
+    "name_label": "Nombre",
+    "lastName_label": "Apellido",
+    "email_label": "Email",
+    "message_label": "Mensaje",
+    "submit_btn": "Enviar",
+    "alert": {
+      "success": "El mensaje fue enviado correctamente.",
+      "failure": "Hubo un error al enviar el mail, por favor intente nuevamente.",
+      "empty_field": "Falta llenar campos!"
+    },
+    "errors": {
+      "field_required": "Este campo es obligatorio",
+      "only_letters": "Debe contener solo letras",
+      "invalid_mail": "El mail es inválido."
+    }
+  }
+}

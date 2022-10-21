@@ -1,0 +1,19 @@
+@import '../../../_variables.scss';
+
+.cvLogo {
+  background-color: $yellow-color;
+  width: 50px;
+  border-radius: 10%;
+  border: 2px solid $yellow-color;
+  height: 50px;
+  
+  &:hover {
+    background-color: $dark-gray;
+  }
+}
+
+.downloadText {
+  color: $yellow-color;
+  font-size: 0.75rem;
+  margin: 0;
+}
