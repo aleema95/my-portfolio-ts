@@ -16,6 +16,8 @@
    
     .scrollToCarouselBtn {
       margin-top: 25px;
+      display: flex;
+      justify-content: center;
 
       button {
         display: inline-block;
@@ -52,12 +54,14 @@
 
     .mainTitle {
       color: $yellow-color;
+      text-align: center;
     }
   
     span {
       color: $white-color;
     }
     .description {
+      text-align: center;
       margin: 0;
       color: $dark-gray;
     }

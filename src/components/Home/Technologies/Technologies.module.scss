@@ -2,6 +2,9 @@
 
 .mainContainer {
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .techTitle {
     color: $yellow-color;
