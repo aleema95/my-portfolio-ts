@@ -27,21 +27,21 @@ export default function Portfolio(props: PortfolioProps) {
             emulateTouch={true} 
             infiniteLoop={true}
             >
-            <div>
-                <img src={JobHub} />
-              <a href="https://jobhub.vercel.app/">
-                <p className="legend">JobHub</p>
-              </a>
-            </div>
-            <div>
-              {isHovered ? 
-                <div className={s.blur}>
-                  <h1 className={s.onBlurText}>Not deployed yet!</h1>
-                </div> 
-                : null}
-                <img src={gameFlow} />
-                <p ref={hoverRef} className="legend">GameFlow</p>
-            </div>
+              <div className={s.test}>
+                  <img src={JobHub} />
+                <a href="https://jobhub.vercel.app/">
+                  <p className="legend">JobHub</p>
+                </a>
+              </div>
+              <div>
+                {isHovered ? 
+                  <div className={s.blur}>
+                    <h1 className={s.onBlurText}>Not deployed yet!</h1>
+                  </div> 
+                  : null}
+                  <img src={gameFlow} />
+                  <p ref={hoverRef} className="legend">GameFlow</p>
+              </div>
           </Carousel>
         </div>
       </motion.div>
