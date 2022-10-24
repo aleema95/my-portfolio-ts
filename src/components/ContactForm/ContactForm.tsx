@@ -13,6 +13,7 @@ export default function ContactForm() {
   const [t, i18n] = useTranslation<string>("global")
   const [formErrors, setFormErrors] = useState<Errors>({})
   const [modalIsActive, setmodalIsActive] = useState<Boolean>(false)
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
   const [userInput, setUserInput] = useState<userInput>({
     name: '',
     last_name: '',
@@ -58,7 +59,8 @@ export default function ContactForm() {
       const templateId: any = REACT_APP_TEMPLATE_ID;
       const userId: any = REACT_APP_USER_ID;
       const serviceId: any = REACT_APP_SERVICE_ID;
-  
+      
+      setIsSubmitting(true)
       await emailjs.sendForm(serviceId, templateId, target, userId)
       Swal.fire({
         title: 'Success',
@@ -69,10 +71,11 @@ export default function ContactForm() {
         showConfirmButton: false,
         timer: 1700,
       })
-
+      setIsSubmitting(false)
     } catch (error) {
       console.error(error);
       
+      setIsSubmitting(false)
       Swal.fire({
         title: 'Error',
         position: 'center',
@@ -142,7 +145,7 @@ export default function ContactForm() {
             </div>
             <textarea name='message' value={userInput.message} onChange={handleChange}></textarea>
           </div>
-          <button className={s.submitBtn} type="submit">{t("contact.submit_btn")}</button>
+          <button disabled={isSubmitting} className={s.submitBtn} type="submit">{isSubmitting ? t("contact.submitting"): t("contact.submit_btn")}</button>
         </form>
     </motion.div>
   )
