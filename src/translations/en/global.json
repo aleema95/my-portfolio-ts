@@ -31,6 +31,7 @@
     "email_label": "Email",
     "message_label": "Message",
     "submit_btn": "Submit",
+    "submitting": "Submitting...",
     "alert": {
       "success": "Message sent successfully.",
       "failure": "An error occurred, please try again.",
